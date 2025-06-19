@@ -1,4 +1,4 @@
-name: C Project CI/CD
+name: StudentSystem CI/CD
 
 on:
   push:
@@ -13,12 +13,12 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: Install build tools
+    - name: Install GCC
       run: sudo apt-get update && sudo apt-get install -y build-essential
 
-    - name: Compile the project
+    - name: Compile
       run: make
 
-    - name: Run the program (simulate user input)
+    - name: Run the program with simulated input
       run: |
-        echo -e "1\n101\nAlice\n2\n3" | ./student_app
+        echo -e "1\n101\nAlice\n85.5\n1\n102\nBob\n92.3\n2\n3\n4" | ./student_app
